@@ -1,6 +1,7 @@
 """
 Configuration for the 1point3acres scraper.
 """
+import os
 
 BASE_URL = "https://www.1point3acres.com"
 LOGIN_URL = f"{BASE_URL}/api/users/login"
@@ -15,10 +16,12 @@ DEFAULT_HEADERS = {
     'Cache-Control': 'max-age=0'
 }
 
-AUTH_CREDENTIALS = {
-    'username': 'pantherggg',
-    'password': 'H2crG5zgfDwy7z'
-}
+def get_auth_credentials():
+    """Get authentication credentials from environment variables."""
+    return {
+        'username': os.environ.get('ONEPOINT3ACRES_USERNAME', ''),
+        'password': os.environ.get('ONEPOINT3ACRES_PASSWORD', '')
+    }
 
 OUTPUT_DIR = "output"
 THREAD_OUTPUT_FILE = "1point3acres_threads.txt"

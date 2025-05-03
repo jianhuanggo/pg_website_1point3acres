@@ -23,6 +23,9 @@ def run_tests():
     Returns:
         bool: True if all tests pass, False otherwise.
     """
+    os.environ['ONEPOINT3ACRES_USERNAME'] = 'test_user'
+    os.environ['ONEPOINT3ACRES_PASSWORD'] = 'test_password'
+    
     project_root = os.path.dirname(os.path.abspath(__file__))
     sys.path.insert(0, project_root)
     

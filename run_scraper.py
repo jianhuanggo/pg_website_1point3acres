@@ -55,6 +55,13 @@ def main():
     """
     args = parse_args()
     
+    if not os.environ.get('ONEPOINT3ACRES_USERNAME') or not os.environ.get('ONEPOINT3ACRES_PASSWORD'):
+        logger.error("Error: Environment variables ONEPOINT3ACRES_USERNAME and ONEPOINT3ACRES_PASSWORD must be set.")
+        logger.error("Please set these variables before running the script:")
+        logger.error("  export ONEPOINT3ACRES_USERNAME='your_username'")
+        logger.error("  export ONEPOINT3ACRES_PASSWORD='your_password'")
+        return 1
+    
     try:
         logger.info("Running tests...")
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

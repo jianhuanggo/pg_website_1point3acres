@@ -6,7 +6,7 @@ import requests
 import logging
 import time
 from bs4 import BeautifulSoup
-from .config import LOGIN_URL, DEFAULT_HEADERS, AUTH_CREDENTIALS
+from .config import LOGIN_URL, DEFAULT_HEADERS, get_auth_credentials
 
 logger = logging.getLogger(__name__)
 
@@ -45,7 +45,7 @@ def authenticate(session=None, credentials=None):
         session = get_session()
     
     if credentials is None:
-        credentials = AUTH_CREDENTIALS
+        credentials = get_auth_credentials()
     
     try:
         response = session.get(LOGIN_URL, timeout=30)
