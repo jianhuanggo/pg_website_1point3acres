@@ -6,7 +6,7 @@ import unittest
 import requests
 from unittest.mock import patch, MagicMock
 from scraper.auth import authenticate, get_session, AuthenticationError
-from scraper.config import AUTH_CREDENTIALS
+from scraper.config import get_auth_credentials
 
 class TestAuthentication(unittest.TestCase):
     """Test cases for authentication module."""

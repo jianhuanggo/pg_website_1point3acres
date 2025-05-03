@@ -8,7 +8,7 @@ import tempfile
 from unittest.mock import patch, MagicMock
 from scraper.auth import authenticate
 from scraper.scraper import ThreadScraper
-from scraper.config import AUTH_CREDENTIALS
+from scraper.config import get_auth_credentials
 
 class TestIntegration(unittest.TestCase):
     """Integration test cases for the scraper."""
